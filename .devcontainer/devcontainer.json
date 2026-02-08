@@ -1,0 +1,26 @@
+{
+  "name": "stopwatch-with-lap-notes",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install",
+  "forwardPorts": [
+    3000
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "remoteUser": "node"
+}
