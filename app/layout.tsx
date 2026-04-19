@@ -7,8 +7,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'Precision Stopwatch',
-  description: 'A high-precision digital stopwatch with lap tracking, notes, and session export.',
+  title: 'Productivity Stopwatch',
+  description: 'Track your day with laps, tags, and session journaling. Built for students and professionals.',
 }
 
 export const viewport: Viewport = {

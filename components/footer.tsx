@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { X } from "lucide-react"
 
-type ModalKey = "how-to-use" | "privacy" | null
+type ModalKey = "about" | "how-to-use" | "privacy" | null
 
 function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
   return (
@@ -37,6 +37,14 @@ export function Footer() {
         <div className="flex items-center justify-center gap-6 text-xs text-muted-foreground/60">
           <button
             type="button"
+            onClick={() => setOpen("about")}
+            className="transition-colors hover:text-foreground"
+          >
+            About
+          </button>
+          <span className="select-none">·</span>
+          <button
+            type="button"
             onClick={() => setOpen("how-to-use")}
             className="transition-colors hover:text-foreground"
           >
@@ -60,7 +68,49 @@ export function Footer() {
             GitHub
           </a>
         </div>
+        <p className="mt-3 text-center text-[11px] text-muted-foreground/40">
+          Made by{" "}
+          <a
+            href="https://github.com/pratham1gg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground/60 underline underline-offset-2 transition-colors hover:text-foreground"
+          >
+            pratham1gg
+          </a>
+        </p>
       </footer>
+
+      {open === "about" && (
+        <Modal title="About Stopwatching" onClose={() => setOpen(null)}>
+          <div className="space-y-3">
+            <p>
+              <strong className="text-foreground">Stopwatching</strong> is a time-awareness tool designed around one simple idea: start it when you open your laptop, and let it track how you spend your day.
+            </p>
+            <p>
+              Every time you switch tasks — from studying to a break, from deep work to a meeting — hit <strong className="text-foreground">Lap</strong> and tag what you just did. By the end of the day, you have a clear, honest log of where your hours went.
+            </p>
+            <p className="text-foreground font-medium">Who is it for?</p>
+            <ul className="space-y-1.5 list-none">
+              <li className="flex gap-2">
+                <span className="text-foreground">-</span>
+                <span><strong className="text-foreground">Students</strong> preparing for competitive exams — track study sessions, breaks, and revision across subjects.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-foreground">-</span>
+                <span><strong className="text-foreground">Professionals</strong> who want to understand how their workday actually breaks down across tasks, meetings, and focus time.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-foreground">-</span>
+                <span><strong className="text-foreground">Anyone</strong> building better habits — seeing where time goes is the first step to spending it better.</span>
+              </li>
+            </ul>
+            <p>
+              At the end of the day, export your session as a Markdown file. Use it as a daily journal, a timesheet, or just a personal log you can look back on. Everything stays on your device — no accounts, no cloud, no tracking.
+            </p>
+          </div>
+        </Modal>
+      )}
 
       {open === "how-to-use" && (
         <Modal title="How to use" onClose={() => setOpen(null)}>
@@ -75,19 +125,31 @@ export function Footer() {
             </li>
             <li className="flex gap-3">
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">3</span>
-              <span>Press <strong className="text-foreground">Stop</strong> to pause. Press Start again to resume from where you left off.</span>
+              <span>Press <strong className="text-foreground">Stop</strong> to pause — a final lap is recorded automatically. Press Start again to resume.</span>
             </li>
             <li className="flex gap-3">
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">4</span>
-              <span>Click any <strong className="text-foreground">Note</strong> field in the lap table to annotate that lap.</span>
+              <span>Use <strong className="text-foreground">Tags</strong> to categorize laps — click the <strong className="text-foreground">+</strong> on any lap to create or apply tags. The <strong className="text-foreground">Tag Summary</strong> below the table shows total time per tag.</span>
             </li>
             <li className="flex gap-3">
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">5</span>
-              <span>Use <strong className="text-foreground">Save session</strong> to download a Markdown file, or <strong className="text-foreground">Push to GitHub</strong> to commit it directly to a repo.</span>
+              <span>Click any <strong className="text-foreground">Note</strong> field to annotate a lap. Notes expand to fit long text.</span>
             </li>
             <li className="flex gap-3">
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">6</span>
-              <span>Press <strong className="text-foreground">Reset</strong> to clear everything and start fresh.</span>
+              <span>Use <strong className="text-foreground">Save session</strong> to download a Markdown file, or <strong className="text-foreground">Push to GitHub</strong> to commit it directly to a repo.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">7</span>
+              <span>Press <strong className="text-foreground">Reset</strong> to clear the timer, laps, and tags — start fresh.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">8</span>
+              <span>Click the <strong className="text-foreground">globe icon</strong> (top-left) to toggle the <strong className="text-foreground">World Clock</strong> sidebar. Add or remove timezones by searching city names or GMT offsets.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-foreground">9</span>
+              <span>Use the <strong className="text-foreground">moon/sun icon</strong> (top-right) to switch between light and dark mode.</span>
             </li>
           </ol>
         </Modal>

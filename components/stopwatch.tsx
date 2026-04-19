@@ -93,15 +93,17 @@ export function Stopwatch() {
   const btnRed   = `${btnBase} bg-[#d9534f] text-white hover:bg-[#c9403c] dark:bg-[#c0392b] dark:hover:bg-[#a93226]`
 
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-col items-center gap-10 px-4 py-14 sm:py-20">
+    <div className="mx-auto flex h-full w-full max-w-xl flex-col items-center px-4 py-4 sm:py-6">
 
-      <div className="w-full flex justify-end">
+      <div className="w-full flex justify-end shrink-0">
         <ThemeToggle />
       </div>
 
-      <TimerDisplay elapsed={elapsed} isRunning={isRunning} />
+      <div className="shrink-0">
+        <TimerDisplay elapsed={elapsed} isRunning={isRunning} />
+      </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 shrink-0 py-4">
         {isRunning ? (
           <>
             <button type="button" onClick={handleLap} className={btnSecondary}>Lap</button>
@@ -118,7 +120,9 @@ export function Stopwatch() {
         )}
       </div>
 
-      <LapTable
+      {/* Scrollable area for laps + actions */}
+      <div className="mt-4 flex w-full min-h-0 flex-1 flex-col items-center gap-4 overflow-y-auto">
+        <LapTable
         laps={laps}
         tagDefs={tagDefs}
         onUpdateNote={handleUpdateNote}
@@ -140,6 +144,7 @@ export function Stopwatch() {
           </button>
         </div>
       )}
+      </div>
 
       <GitHubModal open={showGitHub} onClose={() => setShowGitHub(false)} sessionMarkdown={exportSession(laps)} />
     </div>

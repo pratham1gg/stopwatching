@@ -132,7 +132,6 @@ export function exportSession(laps: Lap[], exportedAt = new Date()): string {
     "# Stopwatch Session",
     "",
     `- Date: ${exportedAtDisplay}`,
-    `- Exported At (ISO): ${exportedAtIso}`,
     `- Total Laps: ${laps.length}`,
     "",
   ]
