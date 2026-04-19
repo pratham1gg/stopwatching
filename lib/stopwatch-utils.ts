@@ -121,7 +121,7 @@ function escapeMarkdownTableCell(value: string): string {
 }
 
 export function getSessionFileName(date = new Date()): string {
-  return `stopwatch-session-${formatDateForFileName(date)}.md`
+  return `${formatDateForFileName(date)}-stopwatch.md`
 }
 
 export function exportSession(laps: Lap[], exportedAt = new Date()): string {
