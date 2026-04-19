@@ -18,7 +18,32 @@
 }
 
 @layer base {
+  /* Light mode (default) */
   :root {
+    --background: 0 0% 97%;
+    --foreground: 240 10% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+    --primary: 240 10% 8%;
+    --primary-foreground: 0 0% 97%;
+    --secondary: 240 5% 92%;
+    --secondary-foreground: 240 10% 8%;
+    --muted: 240 5% 92%;
+    --muted-foreground: 240 5% 45%;
+    --accent: 240 5% 92%;
+    --accent-foreground: 240 10% 8%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 85%;
+    --input: 240 5% 85%;
+    --ring: 142 50% 38%;
+    --radius: 0.5rem;
+  }
+
+  /* Dark mode */
+  .dark {
     --background: 240 10% 4%;
     --foreground: 0 0% 96%;
     --card: 240 6% 8%;

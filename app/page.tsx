@@ -1,9 +1,13 @@
 import { Stopwatch } from "@/components/stopwatch"
+import { Footer } from "@/components/footer"
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen items-start justify-center">
-      <Stopwatch />
-    </main>
+    <div className="flex min-h-screen flex-col">
+      <main className="flex flex-1 items-center justify-center">
+        <Stopwatch />
+      </main>
+      <Footer />
+    </div>
   )
 }
