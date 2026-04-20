@@ -125,7 +125,6 @@ export function getSessionFileName(date = new Date()): string {
 }
 
 export function exportSession(laps: Lap[], exportedAt = new Date()): string {
-  const exportedAtIso = exportedAt.toISOString()
   const exportedAtDisplay = formatDateForDisplay(exportedAt)
 
   const header = [
